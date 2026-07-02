@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 #models.Base.metadata.create_all(bind=engine) we will not need this when we use alembic as this was used to create tables when the sql alchemy started up but now alembic handles that
 #app can be named anything you like but follow conventions
 app = FastAPI()
-origins=["https://www.google.com"]
+origins=["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
