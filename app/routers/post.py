@@ -53,7 +53,7 @@ def create_post(post: schemas.CreatePost,db:Session=Depends(get_db),user_id :int
     return new_post
 
 
-@router.get("/latest",response_model=list[schemas.PostResponse])
+@router.get("/latest",response_model=schemas.PostResponse)
 def get_latest(db:Session=Depends(get_db),user_id:int=Depends(Oauth2.get_current_user)):
     #if this function were to be placed below @app.get("/posts/{id}") we would get an error why?
     #  cuz it will think latest is a path parameter and will try to validate it
