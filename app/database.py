@@ -4,7 +4,7 @@ from sqlalchemy.orm import DeclarativeBase
 from .configs import settings
 # an Engine, which the Session will use for connection resources
 #print(settings.model_dump())
-engine = create_engine(f"postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}")
+engine = create_engine(f"postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}?sslmode=require&channel_binding=require")
 #?sslmode=require&channel_binding=require add for neon
 class Base(DeclarativeBase):
     pass
