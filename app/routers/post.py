@@ -6,6 +6,7 @@ from ..database import get_db
 router=APIRouter(prefix="/posts",tags=["Posts"])
 
 
+
 @router.get("/",response_model=list[schemas.PostStatsResponse])
 def get_posts(db:Session=Depends(get_db),user_id:int=Depends(Oauth2.get_current_user),limit:int=10,skip:int |None=None,search:str=""):
     # with conn.cursor() as cur:
@@ -31,7 +32,7 @@ def get_posts(db:Session=Depends(get_db),user_id:int=Depends(Oauth2.get_current_
 
 # post is just any random variable Post is the class name used as type hints here define the fields
 #since according to conventions we must return status code 201 if we have successfully created smtg we change the status code
-@router.post("/",status_code=status.HTTP_201_CREATED)
+@router.post("/",response_model=schemas.PostResponse,status_code=status.HTTP_201_CREATED)
 def create_post(post: schemas.CreatePost,db:Session=Depends(get_db),user_id :int=Depends(Oauth2.get_current_user)):
     #with conn.cursor() as cur:
         # #we dont use f strings to execute this query as its vulnarebale to sql injection attack as if you use f string the person
@@ -49,7 +50,7 @@ def create_post(post: schemas.CreatePost,db:Session=Depends(get_db),user_id :int
     db.add(new_post)
     db.commit()
     db.refresh(new_post)
-    
+    #print(new_post.user_info)
     return new_post
 
 

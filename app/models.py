@@ -1,6 +1,6 @@
 from .database import Base
 from sqlalchemy import TIMESTAMP, ForeignKey, Integer, String, text,CheckConstraint
-from sqlalchemy.orm import Mapped, Relationship,mapped_column
+from sqlalchemy.orm import Mapped, relationship,mapped_column
 class Post(Base):
     __tablename__="posts"
 
@@ -11,7 +11,7 @@ class Post(Base):
     created_at=mapped_column(TIMESTAMP(timezone=True),nullable=False,server_default=text('now()'))
     user_id:Mapped[int]=mapped_column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
 
-    user_info=Relationship("User")
+    user_info=relationship("User")
 
 class User(Base):
     __tablename__="users"

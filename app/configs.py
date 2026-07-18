@@ -7,6 +7,12 @@ class Settings(BaseSettings):
     database_port: str
     database_name: str
 
+    testing_password: str
+    testing_username: str
+    testing_hostname: str
+    testing_port: str
+    testing_name: str
+
     SECRET_KEY: str
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int

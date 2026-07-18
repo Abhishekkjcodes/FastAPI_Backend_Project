@@ -27,5 +27,5 @@ app.include_router(router=like.router)
 # function ,could be anything accordign to the functionality try to make it descriptive 
 @app.get("/")
 async def root():
-    return {"message": "well this is fast api"}
+    return {"message": "well this is fast api with bind mounts"}
 #------------------------------------------------------------------------------------------

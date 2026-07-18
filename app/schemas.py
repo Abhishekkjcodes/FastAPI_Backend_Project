@@ -3,6 +3,11 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, EmailStr
 
+class UserResponse(BaseModel):
+    id: int
+    email: EmailStr
+    model_config = ConfigDict(from_attributes=True)
+
 class PostsBase(BaseModel):
     title: str
     content: str
@@ -22,7 +27,6 @@ class PostResponse(PostsBase):
     user_id:int
     user_info:UserResponse
     #you can select what you wanna sent to the user using pydantic model
-
     model_config = ConfigDict(from_attributes=True)
 
 class PostStatsResponse(BaseModel):
@@ -30,17 +34,14 @@ class PostStatsResponse(BaseModel):
     likes:int
     dislikes:int
     model_config = ConfigDict(from_attributes=True)
+    #you can extend PostResponse as well but then the data recieved must be flattened out
 #-----------------------------------------------------------------------------------------------
 
 class CreateUser(BaseModel):
     email:EmailStr
     password:str
 
-class UserResponse(BaseModel):
-    id: int
-    email: EmailStr
 
-    model_config = ConfigDict(from_attributes=True)
 
 #---------------------------------------------------------------------------------------------
 class UserLogin(BaseModel):

@@ -1,0 +1,11 @@
+name: Build and Deploy code
+on: [push,pull-request] #we can change behaviour accordign to branches but we have one one branch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pulling git repo
+        uses: actions/checkout@v7.0.0
+      - name: say hi to abhishek
+        run: echo "hello abhishek"
