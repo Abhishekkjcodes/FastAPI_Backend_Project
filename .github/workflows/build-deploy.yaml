@@ -1,5 +1,5 @@
 name: Build and Deploy code
-on: [push,pull-request] #we can change behaviour accordign to branches but we have one one branch
+on: [push,pull_request] #we can change behaviour accordign to branches but we have one one branch
 
 jobs:
   job1:
