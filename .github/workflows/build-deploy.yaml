@@ -2,10 +2,17 @@ name: Build and Deploy code
 on: [push,pull_request] #we can change behaviour accordign to branches but we have one one branch
 
 jobs:
-  job1:
+  setting-up:
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
         uses: actions/checkout@v7.0.0
-      - name: say hi to abhishek
-        run: echo "hello abhishek"
+      - name: install python
+        uses: actions/setup-python@v6.3.0
+        with:
+          python-version: '3.14.3'
+      - name: upgrade pip
+        runs: python -m pip install --upgrade pip
+      - name: intall dependencies
+        run: pip install -r requirements.txt
+
