@@ -7,6 +7,15 @@ class Settings(BaseSettings):
     database_port: str
     database_name: str
 
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
+
+    model_config = SettingsConfigDict(env_file=".env")
+
+settings=Settings()
+
+class TestSettings(BaseSettings):
     testing_password: str
     testing_username: str
     testing_hostname: str
@@ -19,4 +28,4 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env")
 
-settings=Settings()
+

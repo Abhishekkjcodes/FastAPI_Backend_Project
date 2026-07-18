@@ -6,9 +6,12 @@ from app import models
 from app.Oauth2 import create_access_token
 from sqlalchemy import create_engine,select
 from sqlalchemy.orm import sessionmaker
-from app.configs import settings
+from app.configs import TestSettings
 from app import models
-engine = create_engine(f"postgresql+psycopg://{settings.testing_username}:{settings.testing_password}@{settings.testing_hostname}:{settings.testing_port}/{settings.testing_name}")
+
+testSettings = TestSettings()
+
+engine = create_engine(f"postgresql+psycopg://{testSettings.testing_username}:{testSettings.testing_password}@{testSettings.testing_hostname}:{testSettings.testing_port}/{testSettings.testing_name}")
 TestingSessionLocal=sessionmaker(engine)
 
 @pytest.fixture()
