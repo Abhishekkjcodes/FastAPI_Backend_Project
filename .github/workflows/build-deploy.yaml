@@ -3,6 +3,22 @@ on: [push,pull_request] #we can change behaviour accordign to branches but we ha
 
 jobs:
   setting-up:
+    env: 
+      DATABASE_PASSWORD:"npg_gQ5LldJN0SAh"
+      DATABASE_USERNAME:"neondb_owner"
+      DATABASE_HOSTNAME:"ep-raspy-hall-aow17c0d-pooler.c-2.ap-southeast-1.aws.neon.tech"
+      DATABASE_PORT:5432
+      DATABASE_NAME:"neondb"
+
+      TESTING_USERNAME:"postgres"
+      TESTING_PASSWORD:"admin123"
+      TESTING_HOSTNAME:"localhost"
+      TESTING_PORT:5432
+      TESTING_NAME:"fastapi_test"
+
+      SECRET_KEY:"3ca0e6108585d3625c64245bc4d6db4412c416dbfae615c450957c24cf546cf2"
+      ALGORITHM:"HS256"
+      ACCESS_TOKEN_EXPIRE_MINUTES:30
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
