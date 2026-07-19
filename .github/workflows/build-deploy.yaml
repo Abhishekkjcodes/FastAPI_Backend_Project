@@ -15,4 +15,5 @@ jobs:
         run: python -m pip install --upgrade pip
       - name: intall dependencies
         run: pip install -r requirements.txt
-
+      - name: test with pytest
+        run: pytest
