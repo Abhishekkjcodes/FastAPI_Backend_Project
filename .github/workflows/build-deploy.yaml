@@ -7,20 +7,20 @@ jobs:
       name: Testing
     env: 
       DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-      DATABASE_USERNAME: ${{variables.DATABASE_USERNAME}}
-      DATABASE_HOSTNAME: ${{variables.DATABASE_HOSTNAME}}
-      DATABASE_PORT: ${{variables.DATABASE_PORT}}
-      DATABASE_NAME: ${{variables.DATABASE_NAME}}
+      DATABASE_USERNAME: ${{vars.DATABASE_USERNAME}}
+      DATABASE_HOSTNAME: ${{vars.DATABASE_HOSTNAME}}
+      DATABASE_PORT: ${{vars.DATABASE_PORT}}
+      DATABASE_NAME: ${{vars.DATABASE_NAME}}
 
-      TESTING_USERNAME: ${{variables.TESTING_USERNAME}}
+      TESTING_USERNAME: ${{vars.TESTING_USERNAME}}
       TESTING_PASSWORD: ${{secrets.TESTING_PASSWORD}}
-      TESTING_HOSTNAME: ${{variables.TESTING_HOSTNAME}}
-      TESTING_PORT: ${{variables.TESTING_PORT}}
-      TESTING_NAME: ${{variables.TESTING_NAME}}
+      TESTING_HOSTNAME: ${{vars.TESTING_HOSTNAME}}
+      TESTING_PORT: ${{vars.TESTING_PORT}}
+      TESTING_NAME: ${{vars.TESTING_NAME}}
 
       SECRET_KEY: ${{secrets.SECRET_KEY}}
       ALGORITHM: ${{secrets.ALGORITHM}}
-      ACCESS_TOKEN_EXPIRE_MINUTES: ${{variables.ACCESS_TOKEN_EXPIRE_MINUTES}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{vars.ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
