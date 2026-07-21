@@ -21,7 +21,7 @@ jobs:
       SECRET_KEY: ${{secrets.SECRET_KEY}}
       ALGORITHM: ${{secrets.ALGORITHM}}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${{vars.ACCESS_TOKEN_EXPIRE_MINUTES}}
-      IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-social-media
+      IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi-social-media
     runs-on: ubuntu-latest
     services: 
       postgres:
