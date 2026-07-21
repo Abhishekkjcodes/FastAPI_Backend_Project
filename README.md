@@ -2,8 +2,7 @@
 
 A RESTful social media backend API built with **FastAPI**, featuring JWT authentication, a PostgreSQL database, and a full Dockerized deployment pipeline. This is a from-scratch backend project covering the core patterns of a production-style API: relational data modeling, authentication, database migrations, testing, and CI/CD.
 
-**Live API docs:** `<add your Render URL>/docs`
-**Postman collection:** `<add link once exported/shared>`
+**Live API docs:** `https://fastapi-social-media-latest.onrender.com/docs`
 
 ---
 
@@ -60,6 +59,11 @@ entrypoint.sh                  # Runs Alembic migrations, then starts uvicorn
 ```
 
 ## API Overview
+Response format:
+JSON
+
+Authentication:
+Bearer Token
 
 | Method | Endpoint         | Description                          | Auth required |
 |--------|------------------|---------------------------------------|:--------------:|
@@ -126,6 +130,26 @@ Tests run against a separate test database, configured via `TESTING_*` environme
 
 The app is deployed on [Render](https://render.com), with the database hosted on [Neon](https://neon.tech). On every push to `main`, GitHub Actions runs the test suite, builds a Docker image, pushes it to Docker Hub, and triggers a Render deploy hook.
 
+### Deployment Flow
+
+GitHub Push
+      ↓
+GitHub Actions
+      ↓
+Pytest
+      ↓
+Docker Build
+      ↓
+Docker Hub
+      ↓
+Render Deploy Hook
+      ↓
+Render
+      ↓
+Neon PostgreSQL
+
 ## Notes
 
-This is a learning project built to practice backend fundamentals: relational data modeling, authentication, database migrations, and containerized deployment. Contributions and feedback are welcome.
+This project was built to explore backend development concepts including REST API design, authentication, relational databases, automated testing, containerization, and CI/CD deployment.
+
+Future improvements include refresh tokens, role-based authorization, caching (Redis), rate limiting, and API versioning.
