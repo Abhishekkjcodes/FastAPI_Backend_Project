@@ -69,7 +69,7 @@ def get_latest(db:Session=Depends(get_db),user_id:int=Depends(Oauth2.get_current
 def my_posts(db:Session=Depends(get_db),user_id:int=Depends(Oauth2.get_current_user)):
     posts=db.scalars(select(models.Post).where(models.Post.user_id==user_id)).all()
     if(not posts):
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,details="No posts available")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="No posts available")
     return posts
 
 @router.get("/{id}",response_model=schemas.PostStatsResponse)

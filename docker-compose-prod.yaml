@@ -22,17 +22,5 @@ services:
     command: "uvicorn app.main:app --host 0.0.0.0 --port 8000 "
 
 
-  postgres:
-    image: postgres:18.4
-    ports:
-      - 5433:5432
-    environment:
-      - POSTGRES_PASSWORD=admin123
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=fastapi
-    volumes:
-      - postgres_data:/var/lib/postgresql
 
-volumes:
-  postgres_data:
   
